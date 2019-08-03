@@ -1,0 +1,10 @@
+<div class="right" *ngIf="notes">
+
+    <h3>Notes</h3>
+    <ul>
+        <li *ngFor="let note of notes | async">
+            <a [href]="note.id" target="_blank">{{ note.name }}</a>
+        </li>
+    </ul>
+  
+</div>
