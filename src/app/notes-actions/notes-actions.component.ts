@@ -15,11 +15,7 @@ export class NotesActionsComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   addNote() {
-    this.store.dispatch(new NoteActions.AddNote({
-        id: 1,
-        name: "New Note", 
-        timestamp: new Date()
-    }) )
+    this.store.dispatch(new NoteActions.AddNote())
   }
 
   ngOnInit() {}

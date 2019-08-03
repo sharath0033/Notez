@@ -1,3 +1,21 @@
-<div class="left">
-    <button (click)="addNote()">Add</button>
+<div id="taskbar">
+    <div id="windowActions">
+        <ul>
+            <li id="close"></li>
+            <li id="minimize"></li>
+            <li id="maximize"></li>
+        </ul>
+    </div>
+    <div id="applicationActions">
+        <div id="noteActions">
+            <ul>
+                <li class="icon icon-togglesidebar"></li>
+                <li class="icon icon-delete"></li>
+                <li class="icon icon-add" (click)="addNote()"></li>
+            </ul>
+        </div>
+        <div id="noteSearch">
+            <input type="search" placeholder="Search"/>
+        </div>
+    </div>
 </div>

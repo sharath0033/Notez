@@ -1,10 +1,11 @@
-<div class="right" *ngIf="notes">
-
-    <h3>Notes</h3>
+<div id="sidebar">
     <ul>
         <li *ngFor="let note of notes | async">
-            <a [href]="note.id" target="_blank">{{ note.name }}</a>
+            <div class="noteTitle">{{ note.title }}</div>
+            <div class="noteMetaData">
+                <div class="noteTimeStamp">{{ formatTimeStamp(note.timeStamp) }}</div>
+                <div class="noteDescription">{{ note.description }}</div>
+            </div>
         </li>
     </ul>
-  
 </div>

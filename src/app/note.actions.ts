@@ -10,13 +10,13 @@ export const DELETE_NOTE = '[NOTE] DELETE';
 export class AddNote implements Action {
     readonly type = ADD_NOTE
 
-    constructor(public payload: Note) {}
+    //constructor(public payload: Note) {}
 }
 
 export class DeleteNote implements Action {
     readonly type = DELETE_NOTE
 
-    constructor(public payload: number) {}
+    //constructor(public payload: number) {}
 }
 
 // Section 4

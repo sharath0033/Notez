@@ -1,0 +1,51 @@
+#sidebar {
+  height: calc(100vh - 40px);
+  overflow-y: scroll;
+}
+#sidebar::-webkit-scrollbar {
+  width: 10px;
+}
+#sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+#sidebar::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 50px;
+}
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
+#sidebar ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+#sidebar ul li {
+  padding: 20px;
+  border-bottom: 1px solid #dfdce0;
+}
+#sidebar ul li .selcted {
+  background-color: #fbe496;
+}
+#sidebar ul li .noteTitle {
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+#sidebar ul li .noteMetaData {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+#sidebar ul li .noteMetaData .noteTimeStamp {
+  width: 70px;
+}
+#sidebar ul li .noteMetaData .noteDescription {
+  width: calc(100% - 70px);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
