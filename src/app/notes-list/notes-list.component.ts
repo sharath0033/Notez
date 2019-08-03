@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Note } from './../note.model';
+import { Note } from '../store/note.model';
 import { AppState } from './../app.state';
 import { Observable } from 'rxjs/Observable';
 import * as moment from 'moment';

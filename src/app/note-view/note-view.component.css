@@ -7,7 +7,9 @@
   width: 10px;
 }
 #noteView::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  -webkit-box-shadow: inset 0px 0px 2px 1px #d6d6d6;
+  -moz-box-shadow: inset 0px 0px 2px 1px #d6d6d6;
+  box-shadow: inset 0px 0px 2px 1px #d6d6d6;
 }
 #noteView::-webkit-scrollbar-thumb {
   background: #c7c7c7;

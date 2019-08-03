@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from './../app.state';
-import { Note } from './../note.model'
-import * as NoteActions from './../note.actions';
+import { Note } from '../store/note.model'
+import * as NoteActions from '../store/note.actions';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
