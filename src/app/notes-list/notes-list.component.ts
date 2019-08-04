@@ -11,7 +11,7 @@ import { SelectNote } from '../store/note.actions';
 	styleUrls: ['./notes-list.component.less']
 })
 export class NotesListComponent implements OnInit {
-	notes: Observable<object>;
+	notes: Observable<any>;
 	selectedNoteIndex: Observable<number>;
 
 	constructor(private store: Store<State>) {

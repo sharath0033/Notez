@@ -10,7 +10,7 @@ import { AddNote, DeleteNote } from '../store/note.actions';
 	styleUrls: ['./notes-actions.component.less']
 })
 export class NotesActionsComponent implements OnInit {
-	selectedNote: Observable<object>;
+	selectedNote;
 	selectedNoteIndex: Observable<number>;
 
 	constructor(private store: Store<State>) {

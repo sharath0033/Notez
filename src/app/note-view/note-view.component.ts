@@ -10,7 +10,7 @@ import * as moment from 'moment';
 	styleUrls: ['./note-view.component.less']
 })
 export class NoteViewComponent implements OnInit {
-	selectedNote: Observable<object>;
+	selectedNote;
 
 	constructor(private store: Store<State>) {
 		this.store.pipe(select('noteData')).subscribe(noteData => {
