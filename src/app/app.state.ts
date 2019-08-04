@@ -1,5 +1,6 @@
 export interface State {
 	notes: any;
   	selectedNoteIndex: number;
-  	selectedNote: any;
+	selectedNote: any;
+	searchKeyword: string;
 }

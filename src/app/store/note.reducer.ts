@@ -7,11 +7,12 @@ win.devTools = win.__REDUX_DEVTOOLS_EXTENSION__.connect();
 export const sampleState: State = {
     notes: [{
         title: 'Sample Note',
-        description: 'Sample description',
+        description: 'Sample additional text',
         timeStamp: new Date()
     }],
     selectedNoteIndex: 0,
-    selectedNote: {}
+	selectedNote: {},
+	searchKeyword: ''
 };
 
 export const initialState: State = JSON.parse(localStorage.getItem("NOTES_APPLICATION")) || sampleState;
@@ -25,7 +26,7 @@ export function reducer(state = initialState, action: NoteActions): State {
 		case NoteActionTypes.AddNote:
 			let newNote = {
 				title: '',
-				description: 'Description',
+				description: 'No additional text provided',
 				timeStamp: new Date()
 			}
 			next = {
@@ -61,10 +62,12 @@ export function reducer(state = initialState, action: NoteActions): State {
 			};
 			break;
 
-		/* case NoteActionTypes.SearchNote:
-			return {
-				...initialState
-			}; */
+		case NoteActionTypes.SearchNote:
+			next = {
+				...state,
+				searchKeyword: action.payload
+			};
+			break;
 
 		default:
 			next = state;

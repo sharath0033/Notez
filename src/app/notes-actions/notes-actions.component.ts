@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { State } from './../app.state';
 import { Observable } from 'rxjs';
-import { AddNote, DeleteNote } from '../store/note.actions';
+import { AddNote, DeleteNote, SearchNote } from '../store/note.actions';
 
 @Component({
 	selector: 'app-notes-actions',
@@ -12,11 +12,13 @@ import { AddNote, DeleteNote } from '../store/note.actions';
 export class NotesActionsComponent implements OnInit {
 	selectedNote: any;
 	notes: any;
+	searchKeyword: Observable<string>;
 
 	constructor(private store: Store<State>) {
 		this.store.pipe(select('noteData')).subscribe(noteData => {
 			this.selectedNote = noteData.selectedNote;
 			this.notes = noteData.notes;
+			this.searchKeyword = noteData.searchKeyword;
 		});
 	}
 
@@ -26,6 +28,10 @@ export class NotesActionsComponent implements OnInit {
 
 	deleteNote() {
 		this.store.dispatch(new DeleteNote());
+	}
+
+	searchNote(){
+		this.store.dispatch(new SearchNote(this.searchKeyword));
 	}
 
 	ngOnInit() {}

@@ -1,10 +1,17 @@
 @import "./../../commonStyles.less";
 @selectedNoteColor: #fbe496;
-@selectedNoteLightColor: #fbe496;
+@selectedNoteLightColor: #f9eec1;
+@searchHighlightColor: #dca30e;
 
 #sidebar{
     height: ~"calc(100vh - 40px)";
     .scrollbar();
+    #notesHeading{
+        font-size: 12px;
+        color: @fontLightColor;
+        padding: 5px 10px;
+        border-bottom: 1px solid @taskbarColor;
+    }
     ul{
         list-style: none;
         margin: 0px;
@@ -14,6 +21,9 @@
             border-bottom: 1px solid @taskbarColor;
             cursor: pointer;
             &.selcted{
+                background-color: @selectedNoteLightColor;
+            }
+            &:active{
                 background-color: @selectedNoteColor;
             }
             .noteTitle{
