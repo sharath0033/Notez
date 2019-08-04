@@ -1,0 +1,10 @@
+#content {
+  display: flex;
+  flex-flow: row wrap;
+}
+#content app-notes-list {
+  width: 250px;
+}
+#content app-note-view {
+  width: calc(100% - 250px);
+}

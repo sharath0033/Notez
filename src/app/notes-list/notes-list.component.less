@@ -1,0 +1,43 @@
+@import "./../../commonStyles.less";
+@selectedNoteColor: #fbe496;
+@selectedNoteLightColor: #fbe496;
+
+#sidebar{
+    height: ~"calc(100vh - 40px)";
+    .scrollbar();
+    ul{
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        li{
+            padding: 20px;
+            border-bottom: 1px solid @taskbarColor;
+            cursor: pointer;
+            &.selcted{
+                background-color: @selectedNoteColor;
+            }
+            .noteTitle{
+                font-weight: bold;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                margin-bottom: 3px;
+                font-size: 15px;
+            }
+            .noteMetaData{
+                display: flex;
+                flex-direction: row;
+                font-size: 14px;
+                .noteTimeStamp{
+                    width: 70px;
+                }
+                .noteDescription{
+                    width: ~"calc(100% - 70px)";
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}

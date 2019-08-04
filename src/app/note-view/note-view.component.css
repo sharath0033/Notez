@@ -1,0 +1,35 @@
+#noteView {
+  overflow-y: scroll;
+  padding: 10px;
+  height: calc(100vh - 60px);
+}
+#noteView::-webkit-scrollbar {
+  width: 10px;
+}
+#noteView::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0px 0px 2px 1px #d6d6d6;
+  -moz-box-shadow: inset 0px 0px 2px 1px #d6d6d6;
+  box-shadow: inset 0px 0px 2px 1px #d6d6d6;
+}
+#noteView::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 50px;
+}
+#noteView::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
+#noteView .timeStamp {
+  text-align: center;
+  color: #969695;
+}
+#noteView textarea {
+  margin: 20px;
+  width: calc(100% - 40px);
+  min-height: calc(100vh - 130px);
+  border: 0px;
+  padding: 0px;
+  outline: none;
+  font-size: 14px;
+  resize: none;
+  text-indent: 0px;
+}

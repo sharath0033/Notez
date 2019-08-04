@@ -1,0 +1,22 @@
+@import "./../../commonStyles.less";
+
+#noteView{
+    .scrollbar();
+    padding: 10px;
+    height: ~"calc(100vh - 60px)";
+    .timeStamp{
+        text-align: center;
+        color: @fontLightColor;
+    }
+    textarea{
+        margin: 20px;
+        width: ~"calc(100% - 40px)";
+        min-height: ~"calc(100vh - 130px)";
+        border: 0px;
+        padding: 0px;
+        outline: none;
+        font-size: 14px;
+        resize: none;
+        text-indent: 0px;
+    }
+}
