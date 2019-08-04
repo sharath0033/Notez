@@ -30,9 +30,9 @@ export function reducer(state = initialState, action: NoteActions): State {
 			}
 			next = {
 				...state,
-					notes: [newNote, ...state.notes],
-					selectedNoteIndex: 0,
-					selectedNote: newNote
+				notes: [newNote, ...state.notes],
+				selectedNoteIndex: 0,
+				selectedNote: newNote
 			};
 			break;
 		
@@ -41,11 +41,15 @@ export function reducer(state = initialState, action: NoteActions): State {
 			break;
 	
 		case NoteActionTypes.DeleteNote:
-			//action.payload
+			let newNotesList = state.notes.filter((item, index) => {
+				return index !== state.selectedNoteIndex;
+			});
+			let newNoteIndex = ((state.selectedNoteIndex === 0) ? 0 : ( state.selectedNoteIndex - 1));
 			next = {
 				...state,
-				selectedNoteIndex: action.payload,
-				selectedNote: state.notes[action.payload]
+				notes: newNotesList,
+				selectedNoteIndex: newNoteIndex,
+				selectedNote: newNotesList[newNoteIndex]
 			};
 			break;
 	

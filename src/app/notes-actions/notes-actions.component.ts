@@ -11,12 +11,12 @@ import { AddNote, DeleteNote } from '../store/note.actions';
 })
 export class NotesActionsComponent implements OnInit {
 	selectedNote;
-	selectedNoteIndex: Observable<number>;
+	notes: Observable<any>;
 
 	constructor(private store: Store<State>) {
 		this.store.pipe(select('noteData')).subscribe(noteData => {
 			this.selectedNote = noteData.selectedNote;
-			this.selectedNoteIndex = noteData.selectedNoteIndex;
+			this.notes = noteData.notes;
 		});
 	}
 
@@ -25,7 +25,7 @@ export class NotesActionsComponent implements OnInit {
 	}
 
 	deleteNote() {
-		this.store.dispatch(new DeleteNote(this.selectedNoteIndex));
+		this.store.dispatch(new DeleteNote());
 	}
 
 	ngOnInit() {}
