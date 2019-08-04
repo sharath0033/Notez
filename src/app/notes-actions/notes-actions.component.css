@@ -116,10 +116,10 @@
   color: #969695;
   cursor: default;
 }
-#taskbar #applicationActions #noteSearch {
+#taskbar #noteSearch {
   display: inline-block;
 }
-#taskbar #applicationActions #noteSearch input {
+#taskbar #noteSearch input {
   margin: 0px 6px;
   border-radius: 4px;
   border: 0px;
@@ -129,4 +129,13 @@
   -webkit-box-shadow: 0px 0px 2px 1px #d6d6d6;
   -moz-box-shadow: 0px 0px 2px 1px #d6d6d6;
   box-shadow: 0px 0px 2px 1px #d6d6d6;
+}
+@media (max-width: 480px) {
+  #taskbar #noteSearch {
+    display: block;
+    margin-top: 10px;
+  }
+  #taskbar #noteSearch input {
+    width: calc(100% - 10px);
+  }
 }

@@ -1,5 +1,6 @@
 #sidebar {
   height: calc(100vh - 40px);
+  background-color: #ffffff;
   overflow-y: scroll;
 }
 #sidebar::-webkit-scrollbar {

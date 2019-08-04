@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Output, EventEmitter } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { State } from './../app.state';
 import { Observable } from 'rxjs';
@@ -13,6 +13,9 @@ export class NotesActionsComponent implements OnInit {
 	selectedNote: any;
 	notes: any;
 	searchKeyword: Observable<string>;
+	toggleSidebarIndicator: boolean = true;
+
+	@Output() messageEvent = new EventEmitter<boolean>();
 
 	constructor(private store: Store<State>) {
 		this.store.pipe(select('noteData')).subscribe(noteData => {
@@ -32,6 +35,11 @@ export class NotesActionsComponent implements OnInit {
 
 	searchNote(){
 		this.store.dispatch(new SearchNote(this.searchKeyword));
+	}
+
+	toggleSidebar(){
+		this.toggleSidebarIndicator = !this.toggleSidebarIndicator;
+		this.messageEvent.emit(this.toggleSidebarIndicator);
 	}
 
 	ngOnInit() {}

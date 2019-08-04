@@ -3,8 +3,31 @@
     flex-flow: row wrap;
     app-notes-list{
         width: 250px;
+        &.fullView{
+            display: none;
+        }
     }
     app-note-view{
         width: ~"calc(100% - 250px)";
+        &.fullView{
+            width: 100%;
+        }
+    }
+    @media (max-width: 480px) {
+        position: relative;
+        app-notes-list{
+            display: none;
+            &.fullView{
+                display: block;
+                position: absolute;
+                width: 250px;
+            }
+        }
+        app-note-view{
+            width: 100%;
+            &.fullView{
+                display: block;
+            }
+        } 
     }
 }

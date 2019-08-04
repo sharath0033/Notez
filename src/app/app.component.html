@@ -1,6 +1,6 @@
-<app-notes-actions></app-notes-actions>
+<app-notes-actions (messageEvent)="receiveMessage($event)"></app-notes-actions>
 <div id="content">
-    <app-notes-list></app-notes-list>
-    <app-note-view></app-note-view>
+    <app-notes-list [ngClass]="{ 'fullView' : !toggleSidebarIndicator }"></app-notes-list>
+    <app-note-view [ngClass]="{ 'fullView' : !toggleSidebarIndicator }"></app-note-view>
 </div>
 
