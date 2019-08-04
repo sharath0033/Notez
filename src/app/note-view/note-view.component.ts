@@ -20,8 +20,7 @@ export class NoteViewComponent implements OnInit {
 			this.selectedNote = noteData.selectedNote;
 		});
 
-		this.delayInput.pipe(debounceTime(500),distinctUntilChanged()).subscribe(value =>{
-			console.log(this.selectedNote);
+		this.delayInput.pipe(debounceTime(500),distinctUntilChanged()).subscribe(value => {
 			this.store.dispatch(new SaveNotes());
 		});
 	}
