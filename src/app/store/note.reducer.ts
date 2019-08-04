@@ -35,6 +35,10 @@ export function reducer(state = initialState, action: NoteActions): State {
 					selectedNote: newNote
 			};
 			break;
+		
+		case NoteActionTypes.SaveNotes:
+			next = { ...state };
+			break;
 	
 		case NoteActionTypes.DeleteNote:
 			//action.payload

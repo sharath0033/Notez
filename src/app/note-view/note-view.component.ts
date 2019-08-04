@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { State } from './../app.state';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import * as moment from 'moment';
+import { SaveNotes } from '../store/note.actions';
 
 @Component({
 	selector: 'app-note-view',
@@ -11,10 +13,16 @@ import * as moment from 'moment';
 })
 export class NoteViewComponent implements OnInit {
 	selectedNote;
+	delayInput : Subject<string> = new Subject();
 
 	constructor(private store: Store<State>) {
 		this.store.pipe(select('noteData')).subscribe(noteData => {
 			this.selectedNote = noteData.selectedNote;
+		});
+
+		this.delayInput.pipe(debounceTime(500),distinctUntilChanged()).subscribe(value =>{
+			console.log(this.selectedNote);
+			this.store.dispatch(new SaveNotes());
 		});
 	}
 
@@ -22,6 +30,10 @@ export class NoteViewComponent implements OnInit {
 		return moment(timeStamp).format('MMMM D, YYYY [at] LT')
 	}
 
-	ngOnInit() {}
+	updateNote(event){
+		this.delayInput.next(event);
+	}
+
+	ngOnInit(){}
 
 }
