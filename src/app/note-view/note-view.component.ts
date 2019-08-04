@@ -12,8 +12,8 @@ import { SaveNotes } from '../store/note.actions';
 	styleUrls: ['./note-view.component.less']
 })
 export class NoteViewComponent implements OnInit {
-	selectedNote;
-	delayInput : Subject<string> = new Subject();
+	selectedNote: any;
+	delayInput: Subject<string> = new Subject();
 
 	constructor(private store: Store<State>) {
 		this.store.pipe(select('noteData')).subscribe(noteData => {

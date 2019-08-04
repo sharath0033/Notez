@@ -10,8 +10,8 @@ import { AddNote, DeleteNote } from '../store/note.actions';
 	styleUrls: ['./notes-actions.component.less']
 })
 export class NotesActionsComponent implements OnInit {
-	selectedNote;
-	notes: Observable<any>;
+	selectedNote: any;
+	notes: any;
 
 	constructor(private store: Store<State>) {
 		this.store.pipe(select('noteData')).subscribe(noteData => {
