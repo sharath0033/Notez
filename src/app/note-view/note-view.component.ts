@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { State } from './../app.state';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import * as moment from 'moment';
 
 @Component({
@@ -10,11 +10,11 @@ import * as moment from 'moment';
 	styleUrls: ['./note-view.component.less']
 })
 export class NoteViewComponent implements OnInit {
-	selectedNote: Observable<any>;
+	selectedNote: Observable<object>;
 
 	constructor(private store: Store<State>) {
-		this.store.select('noteData').subscribe(data => {
-			this.selectedNote = data.selectedNote;
+		this.store.pipe(select('noteData')).subscribe(noteData => {
+			this.selectedNote = noteData.selectedNote;
 		});
 	}
 

@@ -1,7 +1,7 @@
 <div id="sidebar">
     <ul>
-        <li *ngFor="let note of (notes | async); index as index" 
-            [ngClass]="{ 'selcted' : (selectedNoteIndex | async) === index }"
+        <li *ngFor="let note of notes; index as index" 
+            [ngClass]="{ 'selcted' : selectedNoteIndex === index }"
             (click)="selectNote(index)">
             <div class="noteTitle">{{ note.title === '' ? 'New Note' :  note.title }}</div>
             <div class="noteMetaData">

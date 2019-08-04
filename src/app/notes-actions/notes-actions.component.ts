@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { State } from './../app.state';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { AddNote, DeleteNote } from '../store/note.actions';
 
 @Component({
@@ -10,11 +10,13 @@ import { AddNote, DeleteNote } from '../store/note.actions';
 	styleUrls: ['./notes-actions.component.less']
 })
 export class NotesActionsComponent implements OnInit {
-	selectedNote: Observable<any>;
+	selectedNote: Observable<object>;
+	selectedNoteIndex: Observable<number>;
 
 	constructor(private store: Store<State>) {
-		this.store.select('noteData').subscribe(data => {
-			this.selectedNote = data.selectedNote;
+		this.store.pipe(select('noteData')).subscribe(noteData => {
+			this.selectedNote = noteData.selectedNote;
+			this.selectedNoteIndex = noteData.selectedNoteIndex;
 		});
 	}
 
@@ -22,8 +24,8 @@ export class NotesActionsComponent implements OnInit {
 		this.store.dispatch(new AddNote());
 	}
 
-	deleteNote(noteIndex) {
-		this.store.dispatch(new DeleteNote(noteIndex));
+	deleteNote() {
+		this.store.dispatch(new DeleteNote(this.selectedNoteIndex));
 	}
 
 	ngOnInit() {}

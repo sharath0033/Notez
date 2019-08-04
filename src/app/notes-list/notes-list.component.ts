@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { State } from './../app.state';
-import { Observable } from 'rxjs/Observable';
-import {pluck} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import * as moment from 'moment';
 import { SelectNote } from '../store/note.actions';
 
@@ -12,12 +11,14 @@ import { SelectNote } from '../store/note.actions';
 	styleUrls: ['./notes-list.component.less']
 })
 export class NotesListComponent implements OnInit {
-	notes: Observable<any>;
+	notes: Observable<object>;
 	selectedNoteIndex: Observable<number>;
 
 	constructor(private store: Store<State>) {
-		this.notes = this.store.pipe(pluck('noteData', 'notes'));
-		this.selectedNoteIndex = this.store.pipe(pluck('noteData', 'selectedNoteIndex'));
+		this.store.pipe(select('noteData')).subscribe(noteData => {
+			this.notes = noteData.notes;
+			this.selectedNoteIndex = noteData.selectedNoteIndex;
+		});
 	}
 	
 	formatTimeStamp(timeStamp){
