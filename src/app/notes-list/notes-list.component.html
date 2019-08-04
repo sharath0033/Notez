@@ -5,7 +5,7 @@
             (click)="selectNote(index)">
             <div class="noteTitle">{{ note.title === '' ? 'New Note' :  note.title }}</div>
             <div class="noteMetaData">
-                <div class="noteTimeStamp">{{ formatTimeStamp(note.timeStamp) }}</div>
+                <div class="noteTimeStamp">{{ note.timeStamp | formatDate:'LT' }}</div>
                 <div class="noteDescription">{{ note.description }}</div>
             </div>
         </li>

@@ -25,10 +25,6 @@ export class NoteViewComponent implements OnInit {
 		});
 	}
 
-	formatTimeStamp(timeStamp){
-		return moment(timeStamp).format('MMMM D, YYYY [at] LT')
-	}
-
 	updateNote(event){
 		this.delayInput.next(event);
 	}

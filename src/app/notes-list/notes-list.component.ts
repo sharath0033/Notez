@@ -20,10 +20,6 @@ export class NotesListComponent implements OnInit {
 			this.selectedNoteIndex = noteData.selectedNoteIndex;
 		});
 	}
-	
-	formatTimeStamp(timeStamp){
-		return moment(timeStamp).format('LT')
-	}
 
 	selectNote(noteIndex) {
 		this.store.dispatch(new SelectNote(noteIndex));
