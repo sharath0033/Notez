@@ -13,11 +13,13 @@ import { SelectNote } from '../store/note.actions';
 export class NotesListComponent implements OnInit {
 	notes: Observable<any>;
 	selectedNoteIndex: Observable<number>;
+	searchKeyword: string;
 
 	constructor(private store: Store<State>) {
 		this.store.pipe(select('noteData')).subscribe(noteData => {
 			this.notes = noteData.notes;
 			this.selectedNoteIndex = noteData.selectedNoteIndex;
+			this.searchKeyword = noteData.searchKeyword;
 		});
 	}
 

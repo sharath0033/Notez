@@ -15,7 +15,10 @@
             </ul>
         </div>
         <div id="noteSearch">
-            <input type="search" placeholder="Search"/>
+            <input type="search" 
+                placeholder="Search" 
+                [(ngModel)]="searchKeyword"
+                (ngModelChange)='searchNote()'/>
         </div>
     </div>
 </div>
