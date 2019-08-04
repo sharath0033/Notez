@@ -1,6 +1,6 @@
-export interface Note {
-    id: number;
-    title: String;
-    description: String;
-    timeStamp: Date;
+import {Action} from '@ngrx/store';
+
+export class PayloadAction implements Action {
+	type: string;
+	constructor(public payload?: any) {}
 }

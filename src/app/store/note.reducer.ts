@@ -1,66 +1,69 @@
-import { Action } from '@ngrx/store'
-import { Note } from './note.model'
-import * as NoteActions from './note.actions'
+import { State } from './../app.state';
+import { NoteActions, NoteActionTypes} from './note.actions';
 
-const data = [{
-    id: 1,
-    title: "New Note",
-    description: "No additional text provided in the description",
-    timeStamp: new Date()
-},{
-    id: 2,
-    title: "New Note",
-    description: "No additional text provided in the description",
-    timeStamp: new Date()
-},{
-    id: 2,
-    title: "New Note",
-    description: "No additional text provided in the description",
-    timeStamp: new Date()
-},{
-    id: 2,
-    title: "New Note",
-    description: "No additional text provided in the description",
-    timeStamp: new Date()
-},{
-    id: 2,
-    title: "New Note",
-    description: "No additional text provided in the description",
-    timeStamp: new Date()
-},{
-    id: 2,
-    title: "New Note",
-    description: "No additional text provided in the description",
-    timeStamp: new Date()
-},{
-    id: 2,
-    title: "New Note",
-    description: "No additional text provided in the description",
-    timeStamp: new Date()
-},{
-    id: 2,
-    title: "New Note",
-    description: "No additional text provided in the description",
-    timeStamp: new Date()
-},{
-    id: 2,
-    title: "New Note",
-    description: "No additional text provided in the description",
-    timeStamp: new Date()
-}]
+const win = window as any;
+win.devTools = win.__REDUX_DEVTOOLS_EXTENSION__.connect();
 
-export function reducer(state: Note[] = data, action: NoteActions.Actions) {
+export const sampleState: State = {
+    notes: [{
+        title: 'Sample Note',
+        description: 'Sample description',
+        timeStamp: new Date()
+    }],
+    selectedNoteIndex: 0,
+    selectedNote: {}
+};
 
-    // Section 3
-    switch(action.type) {
-        case NoteActions.ADD_NOTE:
-            return [...state, {
-                id: 1,
-                title: "New Note",
-                description: "No additional text provided in the description",
-                timeStamp: new Date()
-            }];
-        default:
-            return state;
-    }
+export const initialState: State = JSON.parse(localStorage.getItem("NOTES_APPLICATION")) || sampleState;
+
+initialState.selectedNote = initialState.notes[initialState.selectedNoteIndex];
+  
+export function reducer(state = initialState, action: NoteActions): State {
+	let next;
+
+    switch (action.type) {
+		case NoteActionTypes.AddNote:
+			let newNote = {
+				title: '',
+				description: 'Description',
+				timeStamp: new Date()
+			}
+			next = {
+				...state,
+					notes: [newNote, ...state.notes],
+					selectedNoteIndex: 0,
+					selectedNote: newNote
+			};
+			break;
+	
+		case NoteActionTypes.DeleteNote:
+			//action.payload
+			next = {
+				...state,
+				selectedNoteIndex: action.payload,
+				selectedNote: state.notes[action.payload]
+			};
+			break;
+	
+		case NoteActionTypes.SelectNote:
+			next = {
+				...state,
+				selectedNoteIndex: action.payload,
+				selectedNote: state.notes[action.payload]
+			};
+			break;
+
+		/* case NoteActionTypes.SearchNote:
+			return {
+				...initialState
+			}; */
+
+		default:
+			next = state;
+			break;
+	}
+
+	win.devTools.send(action.type, next);
+	localStorage.setItem("NOTES_APPLICATION", JSON.stringify(next));
+	return next;
 }

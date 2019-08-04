@@ -126,6 +126,10 @@
                     .boxShadow(0px 0px 2px 1px @boxShadowColor);
                     color: @fontColor;
                     cursor: pointer;
+                    &[disabled="true"]{
+						color: @fontLightColor;
+						cursor: default;
+                    }
                 }
             }
         }

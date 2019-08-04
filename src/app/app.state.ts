@@ -1,5 +1,5 @@
-import { Note } from './store/note.model';
-
-export interface AppState {
-  readonly note: Note[];
+export interface State {
+	notes: any;
+  	selectedNoteIndex: number;
+  	selectedNote: object;
 }

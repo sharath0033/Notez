@@ -25,8 +25,9 @@
 #sidebar ul li {
   padding: 20px;
   border-bottom: 1px solid #dfdce0;
+  cursor: pointer;
 }
-#sidebar ul li .selcted {
+#sidebar ul li.selcted {
   background-color: #fbe496;
 }
 #sidebar ul li .noteTitle {

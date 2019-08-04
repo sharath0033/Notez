@@ -1,4 +1,4 @@
 <div id="noteView">
-    <div class="timeStamp">September 15, 2017 at 3:20 PM</div>
-    <textarea></textarea>
+    <div class="timeStamp">{{ formatTimeStamp(selectedNote.timeStamp) }}</div>
+    <textarea [(ngModel)]="selectedNote.title"></textarea>
 </div>

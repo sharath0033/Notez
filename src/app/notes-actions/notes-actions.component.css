@@ -112,6 +112,10 @@
   color: #494947;
   cursor: pointer;
 }
+#taskbar #applicationActions #noteActions ul li[disabled="true"] {
+  color: #969695;
+  cursor: default;
+}
 #taskbar #applicationActions #noteSearch {
   display: inline-block;
 }

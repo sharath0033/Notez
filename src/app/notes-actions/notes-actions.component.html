@@ -10,8 +10,8 @@
         <div id="noteActions">
             <ul>
                 <li class="icon icon-togglesidebar"></li>
-                <li class="icon icon-delete"></li>
-                <li class="icon icon-add" (click)="addNote()"></li>
+                <li class="icon icon-delete" (click)="deleteNote()"></li>
+                <li class="icon icon-add" (click)="selectedNote.title === '' || addNote()" [attr.disabled]="selectedNote.title === ''"></li>
             </ul>
         </div>
         <div id="noteSearch">
