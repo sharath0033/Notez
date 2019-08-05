@@ -1,9 +1,6 @@
 import { State } from './../app.state';
 import { NoteActions, NoteActionTypes} from './note.actions';
 
-const win = window as any;
-win.devTools = win.__REDUX_DEVTOOLS_EXTENSION__.connect();
-
 export const sampleState: State = {
     notes: [{
         title: 'Sample Note',
@@ -74,7 +71,6 @@ export function reducer(state = initialState, action: NoteActions): State {
 			break;
 	}
 
-	win.devTools.send(action.type, next);
 	localStorage.setItem("NOTES_APPLICATION", JSON.stringify(next));
 	return next;
 }
