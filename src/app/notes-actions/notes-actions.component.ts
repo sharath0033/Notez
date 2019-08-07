@@ -2,7 +2,7 @@ import { Component, OnInit , Output, EventEmitter } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { State } from './../app.state';
 import { Observable } from 'rxjs';
-import { AddNote, DeleteNote, SearchNote } from '../store/note.actions';
+import { AddNote, DeleteNote, LockUnlockNote, SearchNote } from '../store/note.actions';
 
 @Component({
 	selector: 'app-notes-actions',
@@ -31,6 +31,11 @@ export class NotesActionsComponent implements OnInit {
 
 	deleteNote() {
 		this.store.dispatch(new DeleteNote());
+	}
+
+	lockUnlockNote() {
+		this.selectedNote.locked = !this.selectedNote.locked;
+		this.store.dispatch(new LockUnlockNote());
 	}
 
 	searchNote(){

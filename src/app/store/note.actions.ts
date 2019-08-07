@@ -5,7 +5,8 @@ export enum NoteActionTypes {
 	SaveNotes = '[Save Notes] Save all notes to Local Storage',
 	DeleteNote = '[Delete Note] Delete selected note',
 	SelectNote = '[Select Note] Select specific note',
-	SearchNote = '[Search Note] Search all notes'
+	SearchNote = '[Search Note] Search all notes',
+	LockUnlockNote = '[Lock Unlock Note] Toggle Lock and Unlock note',
 }
 
 export class AddNote extends PayloadAction {
@@ -28,4 +29,8 @@ export class SearchNote extends PayloadAction {
   	readonly type = NoteActionTypes.SearchNote;
 }
 
-export type NoteActions = AddNote | SaveNotes | DeleteNote | SelectNote | SearchNote;
+export class LockUnlockNote extends PayloadAction {
+	readonly type = NoteActionTypes.LockUnlockNote;
+}
+
+export type NoteActions = AddNote | SaveNotes | LockUnlockNote | DeleteNote | SelectNote | SearchNote;

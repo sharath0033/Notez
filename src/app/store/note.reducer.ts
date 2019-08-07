@@ -4,7 +4,8 @@ import { NoteActions, NoteActionTypes} from './note.actions';
 export const sampleState: State = {
     notes: [{
         title: 'Sample Note',
-        description: 'Sample additional text',
+		description: 'Sample additional text',
+		locked: false,
         timeStamp: new Date()
     }],
     selectedNoteIndex: 0,
@@ -24,6 +25,7 @@ export function reducer(state = initialState, action: NoteActions): State {
 			let newNote = {
 				title: '',
 				description: 'No additional text provided',
+				locked: false,
 				timeStamp: new Date()
 			}
 			next = {
@@ -64,6 +66,10 @@ export function reducer(state = initialState, action: NoteActions): State {
 				...state,
 				searchKeyword: action.payload
 			};
+			break;
+
+		case NoteActionTypes.LockUnlockNote:
+			next = { ...state };
 			break;
 
 		default:

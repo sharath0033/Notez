@@ -20,7 +20,15 @@
         li{
             padding: 20px;
             border-bottom: 1px solid @taskbarColor;
+            position: relative;
             cursor: pointer;
+            .noteLocked{
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                margin: 6px;
+                font-size: 14px;
+            }
             &.selcted{
                 background-color: @selectedNoteLightColor;
             }
