@@ -10,8 +10,13 @@ export class AppComponent {
 	constructor() { }
 
 	toggleSidebarIndicator: boolean = true;
+	toggleSideviewIndicator: boolean = true;
 
 	receiveMessage($event) {
-		this.toggleSidebarIndicator = $event
+		if($event.toggleSidebarIndicator != undefined){
+			this.toggleSidebarIndicator = $event.toggleSidebarIndicator;
+		}else if($event.toggleSideviewIndicator != undefined){
+			this.toggleSideviewIndicator = $event.toggleSideviewIndicator;
+		}
 	}
 }

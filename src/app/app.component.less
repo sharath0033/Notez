@@ -6,11 +6,17 @@
         &.fullView{
             display: none;
         }
+        &.listView{
+            width: 100%;
+        }
     }
     app-note-view{
         width: ~"calc(100% - 250px)";
         &.fullView{
             width: 100%;
+        }
+        &.listView{
+            display: none;
         }
     }
     @media (max-width: 480px) {

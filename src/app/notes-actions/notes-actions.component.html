@@ -9,17 +9,22 @@
     <div id="applicationActions">
         <div id="noteActions">
             <ul>
-                <li class="icon icon-togglesidebar" (click)="toggleSidebar()"></li>
+                <li class="icon icon-togglesidebar" (click)="!toggleSideviewIndicator || toggleSidebar()" [attr.disabled]="!toggleSideviewIndicator"></li>
                 <li class="icon icon-delete" (click)="(notes.length === 1 || selectedNote.locked) || deleteNote()" [attr.disabled]="notes.length === 1 || selectedNote.locked"></li>
-                <li class="icon icon-add" (click)="(selectedNote.title === '') || addNote()" [attr.disabled]="selectedNote.title === ''"></li>
+                <li class="icon icon-add" (click)="(selectedNote.title === '' && selectedNote.description === '') || addNote()" [attr.disabled]="selectedNote.title === '' && selectedNote.description === ''"></li>
                 <li class="icon" [ngClass]="selectedNote.locked ? 'icon-lock' : 'icon-unlocked'" (click)="lockUnlockNote()"></li>
             </ul>
         </div>
     </div>
-    <div id="noteSearch">
-        <input type="search" 
-            placeholder="Search" 
-            [(ngModel)]="searchKeyword"
-            (ngModelChange)='searchNote()'/>
+    <div id="applicationEventActions">
+        <div id="noteSearch">
+            <input type="search" 
+                placeholder="Search" 
+                [(ngModel)]="searchKeyword"
+                (ngModelChange)='searchNote()'/>
+        </div>
+        <div id="toggleSideview">
+            <i class="icon" [ngClass]="toggleSideviewIndicator ? 'icon-toggleright' : 'icon-toggleleft'" (click)="!toggleSidebarIndicator || toggleSideview()" [attr.disabled]="!toggleSidebarIndicator"></i>
+        </div>
     </div>
 </div>

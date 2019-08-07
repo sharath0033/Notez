@@ -1,7 +1,8 @@
+@charset "UTF-8";
 @font-face {
   font-family: "notes-application";
-  src: url("app/assets/fonts/notes-application.eot");
-  src: url("app/assets/fonts/notes-application.eot?#iefix") format("embedded-opentype"), url("app/assets/fonts/notes-application.woff") format("woff"), url("app/assets/fonts/notes-application.ttf") format("truetype"), url("app/assets/fonts/notes-application.svg#notes-application") format("svg");
+  src: url("assets/fonts/notes-application.eot");
+  src: url("assets/fonts/notes-application.eot?#iefix") format("embedded-opentype"), url("assets/fonts/notes-application.woff") format("woff"), url("assets/fonts/notes-application.ttf") format("truetype"), url("assets/fonts/notes-application.svg#notes-application") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -44,6 +45,9 @@
 }
 .icon-lock:before {
   content: "\65";
+}
+.icon-unlocked:before {
+  content: "\6a";
 }
 .icon-clear:before {
   content: "\66";
@@ -115,10 +119,13 @@
   color: #969695;
   cursor: default;
 }
-#taskbar #noteSearch {
+#taskbar #applicationEventActions {
   display: inline-block;
 }
-#taskbar #noteSearch input {
+#taskbar #applicationEventActions #noteSearch {
+  display: inline-block;
+}
+#taskbar #applicationEventActions #noteSearch input {
   margin: 0px 6px;
   border-radius: 4px;
   border: 0px;
@@ -128,13 +135,31 @@
   -webkit-box-shadow: 0px 0px 2px 1px #d6d6d6;
   -moz-box-shadow: 0px 0px 2px 1px #d6d6d6;
   box-shadow: 0px 0px 2px 1px #d6d6d6;
+  vertical-align: middle;
+}
+#taskbar #applicationEventActions #toggleSideview {
+  display: inline-block;
+}
+#taskbar #applicationEventActions #toggleSideview i {
+  margin: 0px 6px;
+  font-size: 16px;
+  color: #494947;
+  cursor: pointer;
+}
+#taskbar #applicationEventActions #toggleSideview i[disabled="true"] {
+  color: #969695;
+  cursor: default;
 }
 @media (max-width: 480px) {
-  #taskbar #noteSearch {
+  #taskbar #applicationEventActions {
     display: block;
-    margin-top: 10px;
   }
-  #taskbar #noteSearch input {
-    width: calc(100% - 10px);
+  #taskbar #applicationEventActions #noteSearch {
+    display: inline-block;
+    margin-top: 10px;
+    width: calc(100% - 30px);
+  }
+  #taskbar #applicationEventActions #noteSearch input {
+    width: 96%;
   }
 }

@@ -14,8 +14,9 @@ export class NotesActionsComponent implements OnInit {
 	notes: any;
 	searchKeyword: Observable<string>;
 	toggleSidebarIndicator: boolean = true;
+	toggleSideviewIndicator: boolean = true;
 
-	@Output() messageEvent = new EventEmitter<boolean>();
+	@Output() messageEvent = new EventEmitter<any>();
 
 	constructor(private store: Store<State>) {
 		this.store.pipe(select('noteData')).subscribe(noteData => {
@@ -44,7 +45,12 @@ export class NotesActionsComponent implements OnInit {
 
 	toggleSidebar(){
 		this.toggleSidebarIndicator = !this.toggleSidebarIndicator;
-		this.messageEvent.emit(this.toggleSidebarIndicator);
+		this.messageEvent.emit({toggleSidebarIndicator: this.toggleSidebarIndicator});
+	}
+
+	toggleSideview(){
+		this.toggleSideviewIndicator = !this.toggleSideviewIndicator;
+		this.messageEvent.emit({toggleSideviewIndicator: this.toggleSideviewIndicator});
 	}
 
 	ngOnInit() {}

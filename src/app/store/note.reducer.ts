@@ -24,7 +24,7 @@ export function reducer(state = initialState, action: NoteActions): State {
 		case NoteActionTypes.AddNote:
 			let newNote = {
 				title: '',
-				description: 'No additional text provided',
+				description: '',
 				locked: false,
 				timeStamp: new Date()
 			}

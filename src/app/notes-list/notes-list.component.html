@@ -8,7 +8,7 @@
             <div class="noteTitle" [innerHTML]="note.title === '' ? 'New Note' :  note.title"></div>
             <div class="noteMetaData">
                 <div class="noteTimeStamp" [innerHTML]="note.timeStamp.changingThisBreaksApplicationSecurity ? note.timeStamp : (note.timeStamp | formatDate:'LT')"></div>
-                <div class="noteDescription" [innerHTML]="note.description"></div>
+                <div class="noteDescription" [innerHTML]="note.description === '' ? 'No additional text provided' : note.description"></div>
             </div>
         </li>
     </ul>
