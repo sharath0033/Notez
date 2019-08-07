@@ -4,9 +4,10 @@
         <li *ngFor="let note of notes | searchFilter:searchKeyword; index as index" 
             [ngClass]="{ 'selcted' : selectedNoteIndex === index }"
             (click)="selectNote(index)">
+            <i class="icon icon-lock noteLocked" *ngIf="note.locked"></i>
             <div class="noteTitle" [innerHTML]="note.title === '' ? 'New Note' :  note.title"></div>
             <div class="noteMetaData">
-                <div class="noteTimeStamp">{{ note.timeStamp | formatDate:'LT' }}</div>
+                <div class="noteTimeStamp" [innerHTML]="note.timeStamp.changingThisBreaksApplicationSecurity ? note.timeStamp : (note.timeStamp | formatDate:'LT')"></div>
                 <div class="noteDescription" [innerHTML]="note.description"></div>
             </div>
         </li>

@@ -13,6 +13,5 @@ export class AppComponent {
 
 	receiveMessage($event) {
 		this.toggleSidebarIndicator = $event
-		console.log(this.toggleSidebarIndicator);
 	}
 }
