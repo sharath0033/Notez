@@ -1,7 +1,12 @@
 <div id="noteView">
     <div class="timeStamp">{{ selectedNote.timeStamp | formatDate:'MMMM D, YYYY [at] LT' }}</div>
-    <textarea [(ngModel)]="selectedNote.title"
+    <input [(ngModel)]="selectedNote.title"
+        placeholder="Title"
         (ngModelChange)='updateNote($event)'
         [readonly]="selectedNote.locked"
-        autofocus></textarea>
+        autofocus/>
+    <textarea [(ngModel)]="selectedNote.description"
+        placeholder="Description"
+        (ngModelChange)='updateNote($event)'
+        [readonly]="selectedNote.locked"></textarea>
 </div>

@@ -8,11 +8,17 @@
 #content app-notes-list.fullView {
   display: none;
 }
+#content app-notes-list.listView {
+  width: 100%;
+}
 #content app-note-view {
   width: calc(100% - 250px);
 }
 #content app-note-view.fullView {
   width: 100%;
+}
+#content app-note-view.listView {
+  display: none;
 }
 @media (max-width: 480px) {
   #content {
